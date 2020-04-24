@@ -1,8 +1,13 @@
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
   event.waitUnit(
-    caches.open
-  )
+    caches.open("static")
+    .then(function(cache){
+      console.log("prechaching");
+      cache.add('/index.html');
+      cache.add('/')
+    })
+  );
 });
 self.addEventListener('activate', function(event) {
 console.log('[Service Worker] Activating Service Worker ...', event);
