@@ -9,3 +9,7 @@ return self.clients.claim();
   console.log('[Service Worker] Fetching something ....', event);
   event.respondWith(fetch(event.request));
 });
+self.addEventListener('push', event => {
+  const notification = event.data.text();
+  self.registration.showNotification(notification,{});
+});

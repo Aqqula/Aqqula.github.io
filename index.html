@@ -21,13 +21,40 @@
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="manifest" href="/manifest.json">
 	<script>
+		function askPermission(){
+			return new Promise(function(resolve,reject){
+				const permissionResult = Notification.requestPermission(function(result){
+				resolve(result);
+				});
+
+				if (permissionResult){
+					permissionResult.then(resolve, reject);
+				}
+			})
+
+			.then(function(permissionResult){
+				if (permissionResult !== 'granted'){
+					throw new Error('We werent granted permission.');
+				}
+			});
+		}
+
 		if ('serviceWorker' in navigator) 
 		{
            navigator.serviceWorker
            .register('/sw.js')
            .then(function() {
                console.log('Service worker registered!');
-           });
+		   });
+		   
+		   navigator.serviceWorker.ready.then(registration => {
+			   if ('PushManager' in window){
+				   document.querySelector('button.subscribe-for-push')
+				   .addEventListener('click', () => {
+					   askPermission()
+				   });
+			   }
+		   });
        }
 	</script>
 </head>
@@ -47,7 +74,7 @@
 							</div>
 						</div>
 					</form>
-
+					<button class="subscribe-for-push">SUBSCRIBE FOR PUSH NOTIFICATIONS</button>
 					<div class="row no-gutters"><!--left-->
 						<div class="col-6 d-flex justify-content-end">
 							<a href="#" class="shape"><i class="fas fa-chalkboard-teacher"></i>О Компании</a>
