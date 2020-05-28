@@ -148,7 +148,7 @@ footer h5{
 	border:1px solid;
 	background-image: url(../images/Хедер.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 
 /*	font-size: 1rem;*/
 	color: #ffffff;
@@ -219,7 +219,7 @@ footer h5{
 	border:1px solid;
 	background-image: url(../images/ХедерПортфолио11.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 
 /*	font-size: 1rem;*/
 	color: #ffffff;
@@ -316,7 +316,7 @@ footer h5{
 	border:1px solid;
 	background-image: url(../images/КонтактыХедер11.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 
 /*	font-size: 1rem;*/
 	color: #ffffff;
@@ -377,7 +377,7 @@ footer h5{
 	border:1px solid;
 	background-image: url(../images/ГрафикХедер.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 
 /*	font-size: 1rem;*/
 	color: #ffffff;
